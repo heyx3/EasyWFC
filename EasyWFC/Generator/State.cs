@@ -149,7 +149,7 @@ namespace QM2D.Generator
         ///     "null": Not done yet
         /// </summary>
         /// <param name="output_FailedAt">
-        /// If the algorithm failed, this collection is filled with
+        /// If the algorithm failed, this variable is set to contain
         ///     the positions of the pixels that it failed at.
         /// </param>
         public bool? Iterate(ref HashSet<Vector2i> output_FailedAt)
@@ -266,9 +266,6 @@ namespace QM2D.Generator
             var newPixel = Output.Get(pixelPos);
             newPixel.FinalValue = value;
             newPixel.VisualizedValue = value;
-
-            var outputPosFilter = OutputPosFilter;
-            var outputColorGetter = OutputColorGetter;
 
             //Any pixel that can share a pattern with the changed pixel is affected.
             Vector2i minAffectedPixelPos = pixelPos - Input.MaxPatternSize,
