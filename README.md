@@ -18,6 +18,8 @@ The main goals of this project are:
 
 One thing my project doesn't do is the "simple tiled model". I chose to only go with one form of input in order to keep the code as simple as possible.
 
+Another thing I'm missing is the ability to "ground" output textures when they're supposed to have a certain bottom (like the flower and city images in the original project).
+
 I also *added* a feature that I found from the internet: if the algorithm finds a pixel that can't be "solved", then instead of giving up it can instead wipe out an area around that pixel so it can try filling it in again. The amount of area to wipe out is a certain multiple of the size of the input patterns. That multiple can be changed in the GUI. If you set the multiple to anything less than 1, it will give up instead of clearing the space.
 
 ## UI
