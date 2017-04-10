@@ -28,7 +28,7 @@
                 case Transforms.Rotate90CW: return Transforms.Rotate270CW;
                 case Transforms.Rotate270CW: return Transforms.Rotate90CW;
 
-                case Transforms.Rotate180: return Transforms.None;
+                case Transforms.Rotate180: return Transforms.Rotate180;
 
                 case Transforms.MirrorX: return Transforms.MirrorX;
                 case Transforms.MirrorY: return Transforms.MirrorY;
