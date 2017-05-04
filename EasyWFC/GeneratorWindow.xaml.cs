@@ -22,6 +22,15 @@ namespace QM2D
     /// </summary>
     public partial class GeneratorWindow : Window
     {
+		public static int HashSeed(string seed)
+		{
+			int hash;
+			if (!int.TryParse(seed, out hash))
+				hash = seed.GetHashCode();
+			return hash;
+		}
+
+
         private Generator.State state;
         private BitmapSource outputImg;
 
@@ -61,7 +70,7 @@ namespace QM2D
                                         new Vector2i(outputWidth, outputHeight),
                                         Check_PeriodicOutputX.IsChecked.Value,
                                         Check_PeriodicOutputY.IsChecked.Value,
-                                        seed.GetHashCode());
+                                        HashSeed(seed));
             Textbox_ViolationClearSize.Text = state.ViolationClearSize.ToString();
             Textbox_OutputWidth.Text = outputWidth.ToString();
             Textbox_OutputHeight.Text = outputHeight.ToString();
@@ -140,7 +149,7 @@ namespace QM2D
         private void Button_Reset_Click(object sender, RoutedEventArgs e)
         {
             Label_Failed.Content = "";
-            state.Reset(null, Readonly_Seed.Content.GetHashCode());
+            state.Reset(null, HashSeed(Readonly_Seed.Content.ToString()));
             UpdateOutputTex();
             
             Button_Step.IsEnabled = true;
@@ -176,7 +185,7 @@ namespace QM2D
             if (int.TryParse(Textbox_OutputWidth.Text, out i) && i > 7)
             {
                 state.Reset(new Vector2i(i, state.Output.SizeY()),
-                            Readonly_Seed.Content.GetHashCode());
+                            HashSeed(Readonly_Seed.Content.ToString()));
                 UpdateOutputTex();
             }
         }
@@ -189,7 +198,7 @@ namespace QM2D
             if (int.TryParse(Textbox_OutputHeight.Text, out i) && i > 7)
             {
                 state.Reset(new Vector2i(state.Output.SizeX(), i),
-                            Readonly_Seed.Content.GetHashCode());
+                            HashSeed(Readonly_Seed.Content.ToString()));
                 UpdateOutputTex();
             }
         }

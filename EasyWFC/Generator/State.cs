@@ -200,20 +200,13 @@ namespace QM2D.Generator
                 int nTotalColors = colorsAndFrequenciesList.Sum(c_f => (int)c_f.Value);
                 int chosenIndex = Rng.Next(nTotalColors);
 
-                int totalCount = 0,
-                    colorCount = 0,
-                    colorIndex = 0;
-                while (totalCount < chosenIndex)
-                {
-                    colorCount += 1;
-                    totalCount += 1;
-
-                    while (colorCount >= colorsAndFrequenciesList[colorIndex].Value)
-                    {
-                        colorCount -= (int)colorsAndFrequenciesList[colorIndex].Value;
-                        colorIndex += 1;
-                    }
-                }
+				int colorIndex = 0;
+				while (chosenIndex >= 0)
+				{
+					chosenIndex -= (int)colorsAndFrequenciesList[colorIndex].Value;
+					colorIndex += 1;
+				}
+				colorIndex -= 1;
                 chosenColor = colorsAndFrequenciesList[colorIndex].Key;
             }
             SetPixel(chosenPixelPos, chosenColor);
