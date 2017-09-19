@@ -33,7 +33,7 @@ All the actual code for the algorithm is in the "EasyWFC/Generator" folder. You 
 The algorithm is split into several classes/files:
 
 * `Vector2i`: A 2D integer coordinate. This struct makes the algorithm much nicer to read. Alongside this class are two other important types:
-    * `Vector2i.Iterator` allows you to `foreach` over a rectangular range of coordinates*.
+    * `Vector2i.Iterator` allows you to `foreach` over a rectangular range of coordinates.
     * The `Transformations` enum, including things like "Rotate90CW" or "MirrorX". Transformations are used when parsing an input image, to include mirrored/rotated versions of the image.
 * `MyExtensions`: Extension methods, mostly extending 2D arrays to support use of my `Vector2i` struct. For example, you can get/set values using a `Vector2i` index, get the size of the array as a `Vector2i`, and get a `Vector2i.Iterator` for every index in the array.
 * `Pattern`: An NxM grid of colors that appears in the input. This struct provides an important method, `DoesFit()`, that checks whether a given output image could contain this pattern at a specific position.
