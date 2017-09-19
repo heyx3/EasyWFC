@@ -44,8 +44,6 @@ The algorithm is split into several classes/files:
     * A Dictionary that stores, for every color the pixel *could* become, the number of ways it could become that color. This is used to weight the RNG when choosing a color for the pixel.
 * `State`: The state of the WFC algorithm. This is where the meat of the algorithm lies. It contains an `Input`, a 2D grid of `OutputPixel`, some tweakable algorithm settings, and an `Iterate()` method that runs one iteration of the WFC algorithm.
 
-*Note that if you're bringing this algorithm into a Unity3D project, there is a potential performance issue here. `Vector2i.Iterator` is used a **lot**, and apparently there is a Unity bug where `foreach` loops always create some garbage even when the iterator is a struct and is known at compile-time. You may want to replace this with standard nested `for` loops.
-
 ## License
 
 All code is under the MIT license (a.k.a. do whatever you want with it).
