@@ -161,7 +161,7 @@ namespace QM2D.Generator
                 maxPatternMinCorner.x -= patternSize.x;
             if (!PeriodicY)
                 maxPatternMinCorner.y -= patternSize.y;
-            foreach (Vector2i patternMinCornerPos in new Vector2i.Iterator(maxPatternMinCorner + 1))
+            foreach (Vector2i patternMinCornerPos in new Vector2i.Iterator(maxPatternMinCorner + 2))
                 foreach (var transform in transformations)
                     Patterns.Add(new Pattern(this, patternMinCornerPos, patternSize, transform));
 
